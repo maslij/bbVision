@@ -1,0 +1,366 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* Import additional styles */
+@import './styles/Typography.css';
+
+:root {
+  /* Light mode theme variables with new color palette */
+  --bg-color: #F7F9FC; /* Soft White */
+  --card-bg: #ffffff;
+  --text-primary: #4A4A4A; /* Graphite Grey */
+  --text-secondary: #666666;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --hover-bg: rgba(0, 0, 0, 0.05);
+  --primary-color: #2C3E66; /* Deep Blue */
+  --secondary-color: #3FB8AF; /* Sky Teal */
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --nav-border: rgba(0, 0, 0, 0.1);
+  
+  /* Font families */
+  --font-primary: 'Montserrat', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
+  
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --line-height: 1.5;
+  --border-radius: 8px;
+  --accent-color: #3FB8AF; /* Sky Teal */
+  --accent-hover: #35a098; /* Darker Sky Teal */
+  --link-color: #2C3E66; /* Deep Blue */
+  --link-hover: #1e2c4c; /* Darker Deep Blue */
+  --button-bg: #f9f9f9;
+  --button-hover: rgba(0, 0, 0, 0.05);
+  --bbox-bg: #f8f8f8;
+  --bbox-border: #C5E86C; /* Vibrant Lime */
+  --cta-color: #C5E86C; /* Vibrant Lime */
+  --cta-hover: #b4d457; /* Darker Vibrant Lime */
+}
+
+[data-theme='dark'] {
+  /* Dark mode theme variables with new color palette */
+  --bg-color: #1e2536; /* Dark version of Deep Blue */
+  --card-bg: #2C3E66; /* Deep Blue */
+  --text-primary: #F7F9FC; /* Soft White */
+  --text-secondary: #b0b0b0;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --hover-bg: rgba(255, 255, 255, 0.05);
+  --primary-color: #3FB8AF; /* Sky Teal */
+  --secondary-color: #C5E86C; /* Vibrant Lime */
+  --nav-bg: rgba(44, 62, 102, 0.8); /* Deep Blue with transparency */
+  --nav-border: rgba(255, 255, 255, 0.1);
+  --background-primary: #1e2536; /* Dark version of Deep Blue */
+  --background-secondary: #2C3E66; /* Deep Blue */
+  --accent-color: #3FB8AF; /* Sky Teal */
+  --accent-hover: #35a098; /* Darker Sky Teal */
+  --link-color: #3FB8AF; /* Sky Teal */
+  --link-hover: #35a098; /* Darker Sky Teal */
+  --button-bg: #2C3E66; /* Deep Blue */
+  --button-hover: rgba(255, 255, 255, 0.1);
+  --bbox-bg: #2C3E66; /* Deep Blue */
+  --bbox-border: #C5E86C; /* Vibrant Lime */
+  --cta-color: #C5E86C; /* Vibrant Lime */
+  --cta-hover: #b4d457; /* Darker Vibrant Lime */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-secondary);
+  font-weight: var(--font-weight-regular);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: var(--text-primary);
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* Highlight selection color based on theme */
+::selection {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Call to action button */
+.btn-cta {
+  background-color: var(--cta-color);
+  color: var(--text-primary);
+  border-color: transparent;
+  font-weight: 600;
+}
+
+.btn-cta:hover {
+  background-color: var(--cta-hover);
+  border-color: transparent;
+}
+
+/* Primary button */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--link-hover);
+}
+
+/* Accent elements */
+.accent-element {
+  color: var(--accent-color);
+}
+
+/* Info panels and cards */
+.info-panel {
+  background-color: var(--card-bg);
+  border-left: 4px solid var(--secondary-color);
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin: 16px 0;
+}
+
+/* Success panels and messages */
+.success-panel {
+  background-color: var(--card-bg);
+  border-left: 4px solid var(--cta-color);
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin: 16px 0;
+}
+
+/* Transitions for theme changes */
+body, 
+button,
+input,
+textarea,
+.card, 
+.navbar {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-semibold);
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: var(--font-weight-semibold);
+}
+
+p {
+  margin-bottom: 1rem;
+  line-height: var(--line-height);
+}
+
+.subtitle, .subheading {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-secondary);
+}
+
+button {
+  border-radius: var(--border-radius);
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--button-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.25s, color 0.25s;
+}
+
+button:hover {
+  border-color: var(--link-color);
+  color: var(--text-primary);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Alarm Modal Bounding Box Styles */
+.alarm-bbox {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--bbox-bg);
+  border-radius: 4px;
+  border-left: 3px solid var(--bbox-border);
+}
+
+.alarm-bbox h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.bbox-info {
+  display: flex;
+  gap: 15px;
+}
+
+.bbox-values {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.bbox-preview {
+  flex: 1;
+  height: 100px;
+}
+
+/* Make sure alarm item has good spacing */
+.alarm-item {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Object Image Styles */
+.object-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-secondary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.object-image img {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+/* Improve alarm item layout */
+.alarm-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.alarm-time {
+  color: var(--text-secondary);
+}
+
+.alarm-class {
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.alarm-confidence {
+  margin-left: 5px;
+  font-weight: normal;
+  color: var(--text-secondary);
+}
+
+.alarm-message {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+/* Error styling for image loading failures */
+.image-error {
+  width: 80px;
+  height: 60px;
+  background-color: var(--background-secondary);
+  position: relative;
+}
+
+.object-image[data-error]::after {
+  content: attr(data-error);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #cc0000;
+  font-size: 12px;
+  text-align: center;
+  white-space: nowrap;
+  width: 100%;
+  padding: 0 10px;
+}
